@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>개발자 포트폴리오</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- 네비게이션 -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="nav-brand">Portfolio</div>
+            <ul class="nav-menu">
+                <li><a href="#home" class="nav-link">Home</a></li>
+                <li><a href="#about" class="nav-link">About</a></li>
+                <li><a href="#skills" class="nav-link">Skills</a></li>
+                <li><a href="#projects" class="nav-link">Projects</a></li>
+                <li><a href="#contact" class="nav-link">Contact</a></li>
+            </ul>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- 히어로 섹션 -->
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <div class="hero-text">
+                <h1 class="hero-title">
+                    안녕하세요,<br>
+                    <span class="gradient-text">조현준</span>입니다
+                </h1>
+                <p class="hero-subtitle">창의적인 아이디어를 현실로 만드는 것을 좋아합니다</p>
+                <div class="hero-buttons">
+                    <a href="#projects" class="btn btn-primary">프로젝트 보기</a>
+                    <a href="#contact" class="btn btn-secondary">연락하기</a>
+                </div>
+            </div>
+            <div class="hero-image">
+                <a href="https://github.com/VINEVA-LAB" target="_blank" class="floating-card" style="background-image: url('img/597886054_1350735172919182_7788580798899885991_n.jpg'); background-size: cover; background-position: center;">
+                </a>
+            </div>
+        </div>
+        <div class="scroll-indicator">
+            <i class="fas fa-chevron-down"></i>
+        </div>
+    </section>
+
+    <!-- About 섹션 -->
+    <section id="about" class="about">
+        <div class="container">
+            <h2 class="section-title">About Me</h2>
+            <div class="about-content">
+                <div class="about-text">
+                    <p>
+                        열정적인 개발자로서 사용자 경험을 최우선으로 생각하며,
+                        깔끔하고 효율적인 코드를 작성하는 것을 즐깁니다.
+                    </p>
+                    <p>
+                        새로운 기술을 배우고 도전하는 것을 좋아하며,
+                        팀과 함께 성장하는 것을 중요하게 생각합니다.
+                    </p>
+                    <div class="about-stats">
+                        <div class="stat-item">
+                            <h3>5+</h3>
+                            <p>프로젝트</p>
+                        </div>
+                        <div class="stat-item">
+                            <h3>신입</h3>
+                            <p>개발자</p>
+                        </div>
+                        <div class="stat-item">
+                            <h3>100%</h3>
+                            <p>만족도</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills 섹션 -->
+    <section id="skills" class="skills">
+        <div class="container">
+            <h2 class="section-title">Skills</h2>
+            <div class="skills-grid">
+                <div class="skill-card">
+                    <div class="skill-icon">
+                        <i class="fab fa-html5"></i>
+                    </div>
+                    <h3>Frontend</h3>
+                    <p>HTML, CSS, JavaScript, React, Vue</p>
+                </div>
+                <div class="skill-card">
+                    <div class="skill-icon">
+                        <i class="fas fa-server"></i>
+                    </div>
+                    <h3>Backend</h3>
+                    <p>Node.js, Python, Express, Django</p>
+                </div>
+                <div class="skill-card">
+                    <div class="skill-icon">
+                        <i class="fas fa-database"></i>
+                    </div>
+                    <h3>Database</h3>
+                    <p>MySQL, MongoDB, PostgreSQL</p>
+                </div>
+                <div class="skill-card">
+                    <div class="skill-icon">
+                        <i class="fab fa-git-alt"></i>
+                    </div>
+                    <h3>Tools</h3>
+                    <p>Git, Docker, AWS, CI/CD</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects 섹션 -->
+    <section id="projects" class="projects">
+        <div class="container">
+            <h2 class="section-title">Projects</h2>
+            <div class="projects-grid">
+                <div class="project-card">
+                    <div class="project-image" style="background-image: url('img/Gemini_Generated_Image_26tguf26tguf26tg.png'); background-size: cover; background-position: center;">
+                        <div class="project-overlay">
+                            <a href="https://github.com/VINEVA-LAB/todaytoyou" class="project-link" target="_blank"><i class="fab fa-github"></i></a>
+                        </div>
+                    </div>
+                    <div class="project-content">
+                        <h3>TodayToYou</h3>
+                        <p>AI 기반 감정 일기 및 타로 카드 웹 애플리케이션입니다. Firebase와 Cloudflare Worker를 활용한 풀스택 프로젝트입니다.</p>
+                        <div class="project-tags">
+                            <span class="tag">React</span>
+                            <span class="tag">Firebase</span>
+                            <span class="tag">Cloudflare Worker</span>
+                            <span class="tag">OpenRouter API</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <div class="project-image" style="background-image: url('img/Gemini_Generated_Image_v1k5rlv1k5rlv1k5.png'); background-size: cover; background-position: center;">
+                        <div class="project-overlay">
+                            <a href="https://github.com/VINEVA-LAB/network" class="project-link" target="_blank"><i class="fab fa-github"></i></a>
+                        </div>
+                    </div>
+                    <div class="project-content">
+                        <h3>WiFi 보안 체커</h3>
+                        <p>WiFi 네트워크의 보안 상태를 모니터링하고, 보안이 취약한 경우 Discord 웹훅을 통해 경고 메시지를 전송하는 Windows 애플리케이션입니다.</p>
+                        <div class="project-tags">
+                            <span class="tag">Java</span>
+                            <span class="tag">Windows</span>
+                            <span class="tag">Discord Webhook</span>
+                            <span class="tag">Maven</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <div class="project-image" style="background-image: url('img/Gemini_Generated_Image_wm940awm940awm94.png'); background-size: cover; background-position: center;">
+                        <div class="project-overlay">
+                            <a href="https://github.com/VINEVA-LAB/CFA" class="project-link" target="_blank"><i class="fab fa-github"></i></a>
+                        </div>
+                    </div>
+                    <div class="project-content">
+                        <h3>고객 피드백 분석 대시보드</h3>
+                        <p>고객 피드백 데이터를 분석하여 감성 분류, 키워드 추출, 시각화를 제공하는 Streamlit 기반 웹 애플리케이션입니다.</p>
+                        <div class="project-tags">
+                            <span class="tag">Python</span>
+                            <span class="tag">Streamlit</span>
+                            <span class="tag">Pandas</span>
+                            <span class="tag">Data Visualization</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact 섹션 -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <h2 class="section-title">Contact</h2>
+            <div class="contact-content">
+                <div class="contact-info">
+                    <h3>함께 일하고 싶으신가요?</h3>
+                    <p>프로젝트나 협업에 대해 이야기하고 싶으시다면 언제든지 연락주세요!</p>
+                    <div class="contact-links">
+                        <a href="mailto:your.email@example.com" class="contact-link">
+                            <i class="fas fa-envelope"></i>
+                            <span>whguswns0202@gmail.com</span>
+                        </a>
+                        <a href="https://github.com/VINEVA-LAB" class="contact-link" target="_blank">
+                            <i class="fab fa-github"></i>
+                            <span>GitHub</span>
+                        </a>
+                        <a href="https://linkedin.com" class="contact-link" target="_blank">
+                            <i class="fab fa-linkedin"></i>
+                            <span>LinkedIn</span>
+                        </a>
+                    </div>
+                </div>
+                <form class="contact-form" id="contactForm">
+                    <div class="form-group">
+                        <input type="text" name="name" id="contactName" placeholder="이름" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="email" name="email" id="contactEmail" placeholder="이메일" required>
+                    </div>
+                    <div class="form-group">
+                        <textarea name="message" id="contactMessage" placeholder="메시지" rows="5" required></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary">메시지 보내기</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2024 Portfolio. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
+
