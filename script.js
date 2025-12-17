@@ -63,9 +63,66 @@ document.querySelectorAll('section > div').forEach(section => {
 const contactForm = document.querySelector('.contact-form');
 const DISCORD_WEBHOOK_URL = 'https://discord.com/api/webhooks/1372111792796467250/xO81-DH5D2IVlxyhmsMLgqsK6w-hJE0Gm-DbODnR5UYBWHarUYW9jAL8UGC0iyYVq-6Z';
 
+// 전송 제한 관리 함수
+function getSendHistory() {
+    const history = localStorage.getItem('contactFormHistory');
+    return history ? JSON.parse(history) : [];
+}
+
+function saveSendHistory(history) {
+    localStorage.setItem('contactFormHistory', JSON.stringify(history));
+}
+
+function checkSendLimit() {
+    const history = getSendHistory();
+    const now = Date.now();
+    const oneHour = 60 * 60 * 1000; // 1시간 (밀리초)
+    
+    // 1시간 이전의 기록 제거
+    const recentHistory = history.filter(timestamp => now - timestamp < oneHour);
+    
+    // 최근 1시간 내 전송 횟수 확인
+    if (recentHistory.length >= 3) {
+        const oldestSend = recentHistory[0];
+        const timeUntilReset = oneHour - (now - oldestSend);
+        const minutesUntilReset = Math.ceil(timeUntilReset / (60 * 1000));
+        return {
+            allowed: false,
+            minutesUntilReset: minutesUntilReset
+        };
+    }
+    
+    return { allowed: true };
+}
+
+function recordSend() {
+    const history = getSendHistory();
+    const now = Date.now();
+    const oneHour = 60 * 60 * 1000;
+    
+    // 1시간 이전의 기록 제거
+    const recentHistory = history.filter(timestamp => now - timestamp < oneHour);
+    
+    // 현재 전송 시간 추가
+    recentHistory.push(now);
+    
+    // 최근 24시간의 기록만 유지 (메모리 관리)
+    const oneDay = 24 * 60 * 60 * 1000;
+    const cleanedHistory = recentHistory.filter(timestamp => now - timestamp < oneDay);
+    
+    saveSendHistory(cleanedHistory);
+}
+
 if (contactForm) {
     contactForm.addEventListener('submit', async (e) => {
         e.preventDefault();
+        
+        // 전송 제한 확인
+        const limitCheck = checkSendLimit();
+        if (!limitCheck.allowed) {
+            alert(`너무 많은 메시지를 보내셨습니다. ${limitCheck.minutesUntilReset}분 후에 다시 시도해주세요.`);
+            return;
+        }
         
         const submitButton = contactForm.querySelector('button[type="submit"]');
         const originalButtonText = submitButton.textContent;
@@ -120,6 +177,8 @@ if (contactForm) {
             });
             
             if (response.ok) {
+                // 전송 성공 시 기록
+                recordSend();
                 alert('메시지가 성공적으로 전송되었습니다!');
                 contactForm.reset();
             } else {
